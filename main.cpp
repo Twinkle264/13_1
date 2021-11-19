@@ -21,16 +21,19 @@ int main() {
     cout << endl << "What number should we delete? " << endl;
     cin >> r;
 
-    for (int i = vec.size(); i > 0; --i) {
-        if (vec[i] == r) {
-            swap(vec[i], vec.back());
-            vec.pop_back();
+    int count = 0;
+    for (int i = 0; i < vec.size(); ++i) {
+        if (vec[i] != r) {
+            vec[count] = vec[i];
+            count++;
         }
     }
 
+    vec.resize(count);
+
     for (int i = 0; i < vec.size(); i++) {
         cout << vec[i] << " ";
-
     }
+
     return 0;
 }
